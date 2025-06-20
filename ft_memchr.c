@@ -14,15 +14,17 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*ptr;
-	size_t			i;
+	const unsigned char	*ptr;
+	size_t				i;
 
-	ptr = (unsigned char *)s;
+	ptr = s;
 	i = 0;
 	while (i < n)
 	{
-		if (*ptr == c)
-			return (ptr);
+		if (*ptr == (unsigned char)c)
+		{
+			return ((void *)(ptr));
+		}
 		ptr++;
 		i++;
 	}
@@ -32,7 +34,13 @@ void	*ft_memchr(const void *s, int c, size_t n)
 int	main(void)
 {
 	char *arr = "abcde";
-	printf("result = %p\n", ft_memchr(arr, 'd', 5));
+	const char *str;
+	str = ft_memchr("bonjour", 'b', 4);
+	printf("result = %s\n", str);
 	printf("result = %p\n", &arr[3]);
+
+	int tab[7] = {-49, 49, 1, -1, 0, -2, 2};
+
+	printf("%ls", (int *)ft_memchr(tab, -1, 7));
 }
  */

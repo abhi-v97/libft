@@ -12,43 +12,55 @@
 
 #include "libft.h"
 
-static size_t	get_digits(int n)
+static size_t	get_digits(long n)
 {
 	size_t	i;
 
-	i = 1;
-	while (n /= 10)
+	i = 0;
+	if (n <= 0)
+	{
+		n *= -1;
 		i++;
+	}
+	while (n > 0)
+	{
+		n /= 10;
+		i++;
+	}
 	return (i);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*result;
-	int	digits;
-	long 	num;
+	int		digits;
+	long	num;
 
-	digits = get_digits(n);
-	result = (char *)malloc(sizeof(char) * digits + 1);
+	num = n;
+	if (num == 0)
+		return (ft_strdup("0"));
+	digits = get_digits(num);
+	result = (char *)malloc(sizeof(char) * (digits + 1));
 	if (result == NULL)
 		return (NULL);
-	num = n;
-	if (n < 0)
-	{
-		result[0] = '-';
-		num *= -1;
-	}
 	result[digits--] = '\0';
-	while (digits >= 0)
+	if (num < 0)
 	{
-		result[digits] = num % 10 + '0';
+		num *= -1;
+		result[0] = '-';
+	}
+	while (num > 0)
+	{
+		result[digits--] = num % 10 + '0';
 		num /= 10;
-		digits--;
 	}
 	return (result);
 }
-
+/* 
+#include <stdio.h>
 int main()
 {
-	printf("s = %s\n", ft_itoa(123456789));
+	char *s = ft_itoa(-0);
+	printf("s = %s\n", s);
 }
+ */

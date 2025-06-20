@@ -30,7 +30,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-
+/* 
 int	main(void)
 {
 	char *arr1 = "12345";
@@ -39,3 +39,4 @@ int	main(void)
 	printf("original = %d\n", memcmp(arr1, arr2, 5));
 	printf("myfunc = %d\n", ft_memcmp(arr1, arr2, 5));
 }
+ */

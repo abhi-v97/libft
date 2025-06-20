@@ -15,8 +15,8 @@
 int	ft_atoi(const char *str)
 {
 	size_t	i;
-	int	minus;
-	int	result;
+	int		minus;
+	int		result;
 
 	i = 0;
 	minus = 0;
@@ -39,8 +39,7 @@ int	ft_atoi(const char *str)
 		result = -result;
 	return (result);
 }
-
- 
+/*  
 #include <stdio.h>
 int main()
 {
@@ -49,3 +48,4 @@ int main()
 	printf("original = %i\n", atoi("\n\t\r\f\v \t+42a432"));
 	return (0);
 }
+ */

@@ -25,15 +25,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 		start++;
 	while (ft_strrchr(set, s1[end]))
 		end--;
-	if (start == end)
-		return (ft_strdup(""));
-	return (ft_substr(s1, start, end - start + 2));
+	return (ft_substr(s1, start, end - start + 1));
 }
-
+/* 
 int main()
 {
-	char *arr = "  ";
-	char *set = "  ";
+	char *arr = "abcdba";
+	char *set = " acb";
 
-	printf("test = %s\n", ft_strtrim(arr, set));
+	printf("test = s%ss\n", ft_strtrim(arr, set));
 }
+ */

@@ -20,7 +20,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	dest_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
-	// check if dst has space for additional characters
 	if (size <= dest_len)
 		return (size + src_len);
 	if (src_len < size - dest_len)
@@ -32,7 +31,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	return (dest_len + src_len);
 }
-
+/* 
 #include <stdio.h>
 #include <string.h>
 int main()
@@ -43,3 +42,4 @@ int main()
     printf("strlcat = %s\n", test1);
     return 0;
 } 
+ */

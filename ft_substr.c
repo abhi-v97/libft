@@ -15,24 +15,26 @@
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*substr;
-	size_t	i;
+	size_t	size;
 
-	substr = (char *)malloc(sizeof(char) * (len + 1));
-	if (s == NULL || substr == NULL)
+	if (s == NULL)
 		return (NULL);
-	i = 0;
-	while (i < ft_strlen(s) && i < len)
-	{
-		substr[i] = s[i + start];
-		i++;
-	}
-	substr[i] = '\0';
+	size = ft_strlen(s);
+	if (start > size)
+		return (ft_strdup(""));
+	if (len > size - start)
+		len = size - start;
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (substr == NULL)
+		return (NULL);
+	ft_memcpy(substr, s + start, len);
+	substr[len] = '\0';
 	return (substr);
 }
 /* 
 int	main(void)
 {
-	char *arr = "hello world";
-	printf("substr = %s\n", ft_substr(arr, 6, 5));
+	// char *arr = "hello world";
+	printf("substr = %s\n", ft_substr("tripouille", 100, 1));
 }
  */

@@ -21,7 +21,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	dest_ptr = (char *)dest;
 	src_ptr = (char *)src;
-	if (dest_ptr > src_ptr || dest_ptr < src_ptr + n)
+	if (dest_ptr > src_ptr)
 	{
 		dest_ptr += (n - 1);
 		src_ptr += (n - 1);
@@ -52,5 +52,17 @@ int main()
 	strcpy(y, "abcdefghi");
 	ft_memcpy(&y[3], &y[0], 6);
 	printf("after ft_memcpy:  %s\n", y);
+}
+ */
+/* 
+int main()
+{
+	char	src[] = "lorem ipsum dolor sit amet";
+	char	*dest;
+	int		arg;
+
+	dest = src + 1;
+	ft_memmove(src, dest, 8);
+	write(1, dest, 22);
 }
  */

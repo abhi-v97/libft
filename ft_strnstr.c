@@ -23,7 +23,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return ((char *)(big));
 	while (big[i] && i < len)
 	{
-		while (big[i + j] == little[j] && big[i + j] != '\0')
+		while (big[i + j] == little[j] && big[i + j] != '\0' && (i + j) < len)
 			j++;
 		if (little[j] == '\0')
 			return ((char *)(big + i));
@@ -40,6 +40,7 @@ int main()
 	test1 = "test1 Hell test2 Hello test3 test4 World";
 	char	*test2 = "Hell";
     printf("strnstr = %s\n", ft_strnstr(test1, test2, 30));
+
     // printf("strcat = %s\n", strnstr(test1, test2, 30));
     return 0;
 }

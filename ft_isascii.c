@@ -14,8 +14,8 @@
 
 int	ft_isascii(int c)
 {
-	if (c <= 127 && c >= 0)
-		return (c);
+	if (c >= 0 && c <= 127)
+		return (1);
 	return (0);
 }
 /* 
@@ -23,10 +23,8 @@ int	ft_isascii(int c)
 #include <ctype.h>
 int	main (void)
 {
-	printf("myfunc = %i\n", ft_isascii(127));
-	printf("orig = %i", isascii(127));
-	printf("");
-	printf("myfunc = %i\n", ft_isascii(128));
-	printf("orig = %i", isascii(128));
+	printf("myfunc = %i\n", ft_isascii(0));
+	printf("orig = %i\n", isascii(0));
+	printf("bool = %i\n", 0 >= 0 && 0 <= 127);
 }
  */
