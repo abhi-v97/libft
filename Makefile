@@ -14,7 +14,8 @@ OBJ_DIR = obj/
 
 OBJS = ${SRCS:%.c=${OBJ_DIR}%.o}
 
-BONUS_OBJS = ${BONUS:.c=.o}
+# BONUS_OBJS = ${BONUS:.c=.o}
+BONUS_OBJS = ${BONUS:%.c=${OBJ_DIR}%.o}
 
 CC = gcc
 
