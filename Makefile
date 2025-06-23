@@ -23,15 +23,18 @@ CFLAGS = -Wall -Wextra -Werror
 
 AR = ar rcs
 
-${OBJ_DIR}%.o:%.c
+all: ${NAME}
+
+${OBJ_DIR}: 
+		mkdir -p obj
+		mkdir -p obj/gnl
+
+${OBJ_DIR}%.o:%.c  | ${OBJ_DIR}
 	${CC} ${CFLAGS} -c $< -o $@ 
 
 ${NAME}: ${OBJS}
-	mkdir -p obj
-	mkdir -p obj/gnl
 	${AR} ${NAME} ${OBJS}
 
-all: ${NAME}
 
 bonus: ${OBJS} ${BONUS_OBJS}
 			${AR} ${NAME} ${OBJS} ${BONUS_OBJS}
