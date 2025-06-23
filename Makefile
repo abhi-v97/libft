@@ -6,22 +6,28 @@ PART2 = ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c 
 
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-SRCS = ${PART1} ${PART2}
+GNL = gnl/get_next_line.c gnl/get_next_line_utils.c
 
-OBJS = ${SRCS:.c=.o}
+SRCS = ${PART1} ${PART2} ${GNL}
+
+OBJ_DIR = obj/
+
+OBJS = ${SRCS:%.c=${OBJ_DIR}%.o}
 
 BONUS_OBJS = ${BONUS:.c=.o}
 
-CC = cc
+CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
 AR = ar rcs
 
-.o:.c
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+${OBJ_DIR}%.o:%.c
+	${CC} ${CFLAGS} -c $< -o $@ 
 
 ${NAME}: ${OBJS}
+	mkdir -p obj
+	mkdir -p obj/gnl
 	${AR} ${NAME} ${OBJS}
 
 all: ${NAME}
